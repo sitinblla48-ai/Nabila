@@ -21,7 +21,7 @@
             <td><?= $no++; ?></td>
             <td><?= $k->nama_kategori; ?></td>
             <td>
-                <a href="<?= site_url("kategori/edit/".$k->id); ?>"class="btn btn-warning btn-sm">Edit</a>
+                <a href="<?= site_url('kategori/edit/'.$k->id); ?>"class="btn btn-warning btn-sm">Edit</a>
                 <a href="<?= site_url('kategori/hapus/'.$k->id); ?>"
                 onclick="return confirm('Yakin?')" class="btn btn-danger btn-sm">Hapus</a>
             </td>

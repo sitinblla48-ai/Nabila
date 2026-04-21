@@ -32,7 +32,7 @@
             <td><?= $k->status; ?></td>
             <td>
                 <a href="<?= site_url("anggota/edit/".$k->id); ?>" class="btn btn-warning btn-sm">Edit</a>
-                <a href="<?= site_url('anggota/hapus/'.$k->id); ?>"
+                <a href="<?= site_url("anggota/hapus/".$k->id); ?>"
                 onclick="return confirm('Yakin?')" class="btn btn-danger btn-sm">Hapus</a>
             </td>
         </tr>
