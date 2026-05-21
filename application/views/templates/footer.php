@@ -32,16 +32,18 @@
     var chart = new Chart(ctx,{
         type: 'bar',
         data:{
-            labels: ['Buku', 'Anggota'],
+            labels: ['Kategori', 'Buku', 'Anggota'],
             datasets:[{
                 labels:'Jumlah Data',
                 data:[
+                    <?= $total_kategori; ?>,
                     <?= $total_buku; ?>,
                     <?= $total_anggota; ?>
                 ],
                 backgroundColor:[
                     '#4e73df',
-                    '#1cc88a'
+                    '#1cc88a',
+                    '#83938d'
                 ]
             }]
         },
