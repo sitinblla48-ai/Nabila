@@ -1,76 +1,62 @@
-<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionsidebar">
-
-<a class="sidebar-brand d-flex align-items-center" href="<?= site_url
-('dashboard')?>">
-    <div class="sidebar-brand-icon rotate-15">
-        <i class="fas fa-laugh-wink"></i>
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="sidebar-header d-flex align-items-center justify-content-between">
+        <h4 class="m-0 fw-bold"><i class="fa-solid fa-hospital me-2 text-primary-custom"></i>Boraheal MC</h4>
     </div>
-    <div class="sidebar-brand-text rotate-n-15 mx-3"> CI3 <sup>SB</sup></div>
-</a>
+    
+    <div class="list-group list-group-flush mt-3">
+        <?php if ($this->session->userdata('admin_logged_in')): ?>
+            <!-- Admin Navigation -->
+            <div class="px-4 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.05rem; opacity: 0.8;">Menu Admin</div>
+            
+            <a href="<?php echo base_url('admin/dashboard'); ?>" class="nav-link <?php echo ($this->uri->segment(2) == 'dashboard') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="<?php echo base_url('admin/pasien'); ?>" class="nav-link <?php echo ($this->uri->segment(2) == 'pasien') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-user-injured"></i>
+                <span>Data Pasien</span>
+            </a>
+            
+            <a href="<?php echo base_url('admin/jadwal'); ?>" class="nav-link <?php echo ($this->uri->segment(2) == 'jadwal') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Data Pendaftaran</span>
+            </a>
+            
+            <a href="<?php echo base_url('admin/laporan'); ?>" class="nav-link <?php echo ($this->uri->segment(1) == 'laporan' || $this->uri->segment(2) == 'laporan') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Laporan</span>
+            </a>
+            
+            <hr class="mx-3 my-2" style="opacity: 0.08;">
+            
+            <a href="<?php echo base_url('admin/logout'); ?>" class="nav-link text-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </a>
 
-<hr class="sidebar-divider my-0">
-
-<li class="nav-item active">
-    <a class="nav-link" href="<?= site_url ('dashboard') ?>">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider my-0">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('kategori') ?>">
-        <i class="fas fa-box"></i>
-        <span>Kategori</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider d-none d-md-block">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('buku') ?>">
-        <i class="fas fa-box"></i>
-        <span>Buku</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider d-none d-md-block">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('peminjaman') ?>">
-        <i class="fas fa-box"></i>
-        <span>Peminjaman</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider d-none d-md-block">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('anggota') ?>">
-        <i class="fas fa-box"></i>
-        <span>Anggota</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider d-none d-md-block">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('laporan/peminjaman') ?>">
-        <i class="fas fa-box"></i>
-        <span>Laporan Peminjaman</span>
-    </a>
-</li>
-
-<hr class="sidebar-divider d-none d-md-block">
-
-<li class="nav-item">
-    <a class="nav-link" href="<?= site_url ('laporan/buku') ?>">
-        <i class="fas fa-box"></i>
-        <span>Laporan Data Buku</span>
-    </a>
-</li>
-</ul>
-
-  <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
+        <?php elseif ($this->session->userdata('pasien_logged_in')): ?>
+            <!-- Patient Navigation -->
+            <div class="px-4 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.05rem; opacity: 0.8;">Menu Pasien</div>
+            
+            <a href="<?php echo base_url('pasien/dashboard'); ?>" class="nav-link <?php echo ($this->uri->segment(2) == 'dashboard') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-address-card"></i>
+                <span>Profil & Riwayat</span>
+            </a>
+            
+            <a href="<?php echo base_url('pasien/daftar'); ?>" class="nav-link <?php echo ($this->uri->segment(2) == 'daftar') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Pendaftaran Online</span>
+            </a>
+            
+            <hr class="mx-3 my-2" style="opacity: 0.08;">
+            
+            <a href="<?php echo base_url('pasien/logout'); ?>" class="nav-link text-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+<!-- /#sidebar -->

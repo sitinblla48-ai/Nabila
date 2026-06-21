@@ -49,10 +49,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'auth';
+$route['default_controller'] = 'auth/pasien_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'auth';
-$route['login/proses'] = 'auth/login';
-$route['logout'] = 'auth/logout';
+// Separate Logins
+$route['admin/login'] = 'auth/admin_login';
+$route['pasien/login'] = 'auth/pasien_login';
+
+// Separate Logouts
+$route['admin/logout'] = 'auth/admin_logout';
+$route['pasien/logout'] = 'auth/pasien_logout';
+
+// Dashboard & Pages
+$route['admin/dashboard'] = 'admin/dashboard';
+$route['admin/pasien'] = 'admin/pasien';
+$route['admin/pasien_create'] = 'admin/pasien_create';
+$route['admin/pasien_edit/(:num)'] = 'admin/pasien_edit/$1';
+$route['admin/pasien_delete/(:num)'] = 'admin/pasien_delete/$1';
+$route['admin/jadwal'] = 'admin/jadwal';
+$route['admin/setujui_pendaftaran/(:num)'] = 'admin/setujui_pendaftaran/$1';
+$route['admin/tolak_pendaftaran/(:num)'] = 'admin/tolak_pendaftaran/$1';
+
+$route['admin/laporan'] = 'laporan/index';
+$route['admin/ekspor_pdf'] = 'laporan/ekspor_pdf';
+$route['admin/ekspor_csv'] = 'laporan/ekspor_csv';
+
+$route['pasien/dashboard'] = 'pasien/dashboard';
+$route['pasien/daftar'] = 'pasien/daftar';
